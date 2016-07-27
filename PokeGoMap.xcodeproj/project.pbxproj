@@ -1,0 +1,309 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		80B660881D4930FF00B9D100 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B660871D4930FF00B9D100 /* main.m */; };
+		80B6608B1D4930FF00B9D100 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B6608A1D4930FF00B9D100 /* AppDelegate.m */; };
+		80B6608E1D4930FF00B9D100 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B6608D1D4930FF00B9D100 /* ViewController.m */; };
+		80B660911D4930FF00B9D100 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80B6608F1D4930FF00B9D100 /* Main.storyboard */; };
+		80B660931D4930FF00B9D100 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80B660921D4930FF00B9D100 /* Assets.xcassets */; };
+		80B660961D4930FF00B9D100 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80B660941D4930FF00B9D100 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		80B660831D4930FF00B9D100 /* PokeGoMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeGoMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		80B660871D4930FF00B9D100 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		80B660891D4930FF00B9D100 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		80B6608A1D4930FF00B9D100 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		80B6608C1D4930FF00B9D100 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		80B6608D1D4930FF00B9D100 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		80B660901D4930FF00B9D100 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		80B660921D4930FF00B9D100 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		80B660951D4930FF00B9D100 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		80B660971D4930FF00B9D100 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		80B660801D4930FF00B9D100 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		80B6607A1D4930FF00B9D100 = {
+			isa = PBXGroup;
+			children = (
+				80B660851D4930FF00B9D100 /* PokeGoMap */,
+				80B660841D4930FF00B9D100 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		80B660841D4930FF00B9D100 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				80B660831D4930FF00B9D100 /* PokeGoMap.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		80B660851D4930FF00B9D100 /* PokeGoMap */ = {
+			isa = PBXGroup;
+			children = (
+				80B660891D4930FF00B9D100 /* AppDelegate.h */,
+				80B6608A1D4930FF00B9D100 /* AppDelegate.m */,
+				80B6608C1D4930FF00B9D100 /* ViewController.h */,
+				80B6608D1D4930FF00B9D100 /* ViewController.m */,
+				80B6608F1D4930FF00B9D100 /* Main.storyboard */,
+				80B660921D4930FF00B9D100 /* Assets.xcassets */,
+				80B660941D4930FF00B9D100 /* LaunchScreen.storyboard */,
+				80B660971D4930FF00B9D100 /* Info.plist */,
+				80B660861D4930FF00B9D100 /* Supporting Files */,
+			);
+			path = PokeGoMap;
+			sourceTree = "<group>";
+		};
+		80B660861D4930FF00B9D100 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				80B660871D4930FF00B9D100 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		80B660821D4930FF00B9D100 /* PokeGoMap */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 80B6609A1D4930FF00B9D100 /* Build configuration list for PBXNativeTarget "PokeGoMap" */;
+			buildPhases = (
+				80B6607F1D4930FF00B9D100 /* Sources */,
+				80B660801D4930FF00B9D100 /* Frameworks */,
+				80B660811D4930FF00B9D100 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PokeGoMap;
+			productName = PokeGoMap;
+			productReference = 80B660831D4930FF00B9D100 /* PokeGoMap.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		80B6607B1D4930FF00B9D100 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Digby Andrews";
+				TargetAttributes = {
+					80B660821D4930FF00B9D100 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 80B6607E1D4930FF00B9D100 /* Build configuration list for PBXProject "PokeGoMap" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 80B6607A1D4930FF00B9D100;
+			productRefGroup = 80B660841D4930FF00B9D100 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				80B660821D4930FF00B9D100 /* PokeGoMap */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		80B660811D4930FF00B9D100 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				80B660961D4930FF00B9D100 /* LaunchScreen.storyboard in Resources */,
+				80B660931D4930FF00B9D100 /* Assets.xcassets in Resources */,
+				80B660911D4930FF00B9D100 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		80B6607F1D4930FF00B9D100 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				80B6608E1D4930FF00B9D100 /* ViewController.m in Sources */,
+				80B6608B1D4930FF00B9D100 /* AppDelegate.m in Sources */,
+				80B660881D4930FF00B9D100 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		80B6608F1D4930FF00B9D100 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				80B660901D4930FF00B9D100 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		80B660941D4930FF00B9D100 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				80B660951D4930FF00B9D100 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		80B660981D4930FF00B9D100 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		80B660991D4930FF00B9D100 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		80B6609B1D4930FF00B9D100 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = PokeGoMap/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ciccc.digby.PokeGoMap;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		80B6609C1D4930FF00B9D100 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = PokeGoMap/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ciccc.digby.PokeGoMap;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		80B6607E1D4930FF00B9D100 /* Build configuration list for PBXProject "PokeGoMap" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				80B660981D4930FF00B9D100 /* Debug */,
+				80B660991D4930FF00B9D100 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		80B6609A1D4930FF00B9D100 /* Build configuration list for PBXNativeTarget "PokeGoMap" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				80B6609B1D4930FF00B9D100 /* Debug */,
+				80B6609C1D4930FF00B9D100 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 80B6607B1D4930FF00B9D100 /* Project object */;
+}
