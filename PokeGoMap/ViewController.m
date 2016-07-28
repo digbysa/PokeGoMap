@@ -14,9 +14,10 @@
 
 @implementation ViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    self.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"PokeMap" image:[UIImage imageNamed:@"Image.png"] selectedImage:[UIImage imageNamed:@"Image.png"]];
 }
 
 - (void)didReceiveMemoryWarning {

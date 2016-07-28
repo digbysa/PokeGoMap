@@ -13,6 +13,7 @@
 		80B660911D4930FF00B9D100 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80B6608F1D4930FF00B9D100 /* Main.storyboard */; };
 		80B660931D4930FF00B9D100 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80B660921D4930FF00B9D100 /* Assets.xcassets */; };
 		80B660961D4930FF00B9D100 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80B660941D4930FF00B9D100 /* LaunchScreen.storyboard */; };
+		80B6609E1D49334F00B9D100 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80B6609D1D49334F00B9D100 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		80B660921D4930FF00B9D100 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		80B660951D4930FF00B9D100 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		80B660971D4930FF00B9D100 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		80B6609D1D49334F00B9D100 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80B6609E1D49334F00B9D100 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +45,7 @@
 		80B6607A1D4930FF00B9D100 = {
 			isa = PBXGroup;
 			children = (
+				80B6609D1D49334F00B9D100 /* MapKit.framework */,
 				80B660851D4930FF00B9D100 /* PokeGoMap */,
 				80B660841D4930FF00B9D100 /* Products */,
 			);
