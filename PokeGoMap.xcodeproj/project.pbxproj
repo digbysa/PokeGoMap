@@ -9,11 +9,13 @@
 /* Begin PBXBuildFile section */
 		80B660881D4930FF00B9D100 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B660871D4930FF00B9D100 /* main.m */; };
 		80B6608B1D4930FF00B9D100 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B6608A1D4930FF00B9D100 /* AppDelegate.m */; };
-		80B6608E1D4930FF00B9D100 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B6608D1D4930FF00B9D100 /* ViewController.m */; };
+		80B6608E1D4930FF00B9D100 /* PokeMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B6608D1D4930FF00B9D100 /* PokeMapViewController.m */; };
 		80B660911D4930FF00B9D100 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80B6608F1D4930FF00B9D100 /* Main.storyboard */; };
 		80B660931D4930FF00B9D100 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80B660921D4930FF00B9D100 /* Assets.xcassets */; };
 		80B660961D4930FF00B9D100 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80B660941D4930FF00B9D100 /* LaunchScreen.storyboard */; };
 		80B6609E1D49334F00B9D100 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80B6609D1D49334F00B9D100 /* MapKit.framework */; };
+		80D77AED1D4BB9950063B189 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80D77AEC1D4BB9950063B189 /* SettingsViewController.m */; };
+		80D77AF01D4BCCC00063B189 /* PokemonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 80D77AEF1D4BCCC00063B189 /* PokemonBase.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,13 +23,17 @@
 		80B660871D4930FF00B9D100 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		80B660891D4930FF00B9D100 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		80B6608A1D4930FF00B9D100 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		80B6608C1D4930FF00B9D100 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		80B6608D1D4930FF00B9D100 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		80B6608C1D4930FF00B9D100 /* PokeMapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PokeMapViewController.h; sourceTree = "<group>"; };
+		80B6608D1D4930FF00B9D100 /* PokeMapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PokeMapViewController.m; sourceTree = "<group>"; };
 		80B660901D4930FF00B9D100 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		80B660921D4930FF00B9D100 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		80B660951D4930FF00B9D100 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		80B660971D4930FF00B9D100 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		80B6609D1D49334F00B9D100 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		80D77AEB1D4BB9950063B189 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		80D77AEC1D4BB9950063B189 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		80D77AEE1D4BCCC00063B189 /* PokemonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PokemonBase.h; sourceTree = "<group>"; };
+		80D77AEF1D4BCCC00063B189 /* PokemonBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PokemonBase.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,13 +70,17 @@
 			children = (
 				80B660891D4930FF00B9D100 /* AppDelegate.h */,
 				80B6608A1D4930FF00B9D100 /* AppDelegate.m */,
-				80B6608C1D4930FF00B9D100 /* ViewController.h */,
-				80B6608D1D4930FF00B9D100 /* ViewController.m */,
+				80B6608C1D4930FF00B9D100 /* PokeMapViewController.h */,
+				80B6608D1D4930FF00B9D100 /* PokeMapViewController.m */,
 				80B6608F1D4930FF00B9D100 /* Main.storyboard */,
 				80B660921D4930FF00B9D100 /* Assets.xcassets */,
 				80B660941D4930FF00B9D100 /* LaunchScreen.storyboard */,
 				80B660971D4930FF00B9D100 /* Info.plist */,
 				80B660861D4930FF00B9D100 /* Supporting Files */,
+				80D77AEB1D4BB9950063B189 /* SettingsViewController.h */,
+				80D77AEC1D4BB9950063B189 /* SettingsViewController.m */,
+				80D77AEE1D4BCCC00063B189 /* PokemonBase.h */,
+				80D77AEF1D4BCCC00063B189 /* PokemonBase.m */,
 			);
 			path = PokeGoMap;
 			sourceTree = "<group>";
@@ -153,9 +163,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				80B6608E1D4930FF00B9D100 /* ViewController.m in Sources */,
+				80D77AF01D4BCCC00063B189 /* PokemonBase.m in Sources */,
+				80B6608E1D4930FF00B9D100 /* PokeMapViewController.m in Sources */,
 				80B6608B1D4930FF00B9D100 /* AppDelegate.m in Sources */,
 				80B660881D4930FF00B9D100 /* main.m in Sources */,
+				80D77AED1D4BB9950063B189 /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,6 +318,7 @@
 				80B6609C1D4930FF00B9D100 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
