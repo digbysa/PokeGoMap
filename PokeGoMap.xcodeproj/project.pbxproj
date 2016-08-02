@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		800914971D512C2F00BC26FE /* PokemonHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 800914961D512C2F00BC26FE /* PokemonHelper.m */; };
 		80B660881D4930FF00B9D100 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B660871D4930FF00B9D100 /* main.m */; };
 		80B6608B1D4930FF00B9D100 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B6608A1D4930FF00B9D100 /* AppDelegate.m */; };
 		80B6608E1D4930FF00B9D100 /* PokeMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B6608D1D4930FF00B9D100 /* PokeMapViewController.m */; };
@@ -19,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		800914951D512C2F00BC26FE /* PokemonHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PokemonHelper.h; sourceTree = "<group>"; };
+		800914961D512C2F00BC26FE /* PokemonHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PokemonHelper.m; sourceTree = "<group>"; };
 		80B660831D4930FF00B9D100 /* PokeGoMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeGoMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80B660871D4930FF00B9D100 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		80B660891D4930FF00B9D100 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -81,6 +84,8 @@
 				80D77AEC1D4BB9950063B189 /* SettingsViewController.m */,
 				80D77AEE1D4BCCC00063B189 /* PokemonBase.h */,
 				80D77AEF1D4BCCC00063B189 /* PokemonBase.m */,
+				800914951D512C2F00BC26FE /* PokemonHelper.h */,
+				800914961D512C2F00BC26FE /* PokemonHelper.m */,
 			);
 			path = PokeGoMap;
 			sourceTree = "<group>";
@@ -164,6 +169,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				80D77AF01D4BCCC00063B189 /* PokemonBase.m in Sources */,
+				800914971D512C2F00BC26FE /* PokemonHelper.m in Sources */,
 				80B6608E1D4930FF00B9D100 /* PokeMapViewController.m in Sources */,
 				80B6608B1D4930FF00B9D100 /* AppDelegate.m in Sources */,
 				80B660881D4930FF00B9D100 /* main.m in Sources */,

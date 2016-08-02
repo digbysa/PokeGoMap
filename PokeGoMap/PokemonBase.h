@@ -14,6 +14,6 @@
 @property (nonatomic, readonly) NSString *pokemonName;
 @property (nonatomic, readonly) NSNumber *isPokemonVisible;
 
-
+- (instancetype)initWithPokemonName:(NSString *)name ID:(NSNumber *)ID andIsVisible:(NSNumber *)isVisible;
 
 @end

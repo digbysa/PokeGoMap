@@ -7,6 +7,7 @@
 //
 
 #import "PokeMapViewController.h"
+#import "PokemonHelper.h"
 
 @interface PokeMapViewController ()
 
@@ -18,6 +19,8 @@
 {
     [super viewDidLoad];
     self.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"PokeMap" image:[UIImage imageNamed:@"Image"] selectedImage:[UIImage imageNamed:@"Image"]];
+    
+    [PokemonHelper sharedObject];
 }
 
 - (void)didReceiveMemoryWarning
