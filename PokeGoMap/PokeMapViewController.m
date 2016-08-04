@@ -84,13 +84,13 @@
     if (!regionIsSet)
     {
         self.mapView.centerCoordinate = coord;
-        [self.mapView setRegion:MKCoordinateRegionMake(coord, MKCoordinateSpanMake(1.0, 1.0)) animated:YES];
+        [self.mapView setRegion:MKCoordinateRegionMake(coord, MKCoordinateSpanMake(0.025, 0.025)) animated:YES];
         regionIsSet = true;
     }
     
     
-    CLLocationCoordinate2D coordBegin = CLLocationCoordinate2DMake(self.mapView.centerCoordinate.latitude - 0.5 , self.mapView.centerCoordinate.longitude - 0.5);
-    CLLocationCoordinate2D coordEnd = CLLocationCoordinate2DMake(self.mapView.centerCoordinate.latitude + 0.5, self.mapView.centerCoordinate.longitude + 0.5);
+    CLLocationCoordinate2D coordBegin = CLLocationCoordinate2DMake(self.mapView.centerCoordinate.latitude - 0.025 , self.mapView.centerCoordinate.longitude - 0.025);
+    CLLocationCoordinate2D coordEnd = CLLocationCoordinate2DMake(self.mapView.centerCoordinate.latitude + 0.025, self.mapView.centerCoordinate.longitude + 0.025);
     
    NSString *URLToServer = [NSString stringWithFormat:@"https://skiplagged.com/api/pokemon.php?bounds=%.6f,%.6f,%.6f,%.6f",coordBegin.latitude,coordBegin.longitude,coordEnd.latitude,coordEnd.longitude];
     //NSString *URLToServer = @"https://skiplagged.com/api/pokemon.php?bounds=49.281753,-123.126088,49.288247,-123.117912";
@@ -104,6 +104,11 @@
         
         for (NSDictionary *pokemonDictionary in array)
         {
+            if (![[PokemonHelper sharedObject]getPokemonIsVisible:pokemonDictionary[@"pokemon_id"]])
+            {
+                continue;
+            }
+            
             PokemonBase *pokemon = [[PokemonBase alloc] initWithPokemonName:pokemonDictionary[@"pokemon_name"] ID:pokemonDictionary[@"pokemon_id"] andIsVisible:@1];
             pokemon.expires = pokemonDictionary[@"expires"];
             pokemon.coordinate = CLLocationCoordinate2DMake([pokemonDictionary[@"latitude"] doubleValue], [pokemonDictionary[@"longitude"] doubleValue]);
@@ -111,7 +116,8 @@
             [self.mapView addAnnotation:pokemon];
             __weak PokemonBase *weakPokemon = pokemon;
             
-            [self.displayedPokemon addObject:weakPokemon];        }
+            [self.displayedPokemon addObject:weakPokemon];
+        }
         
     }] resume];
     
