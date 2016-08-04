@@ -100,7 +100,12 @@
     [self switchVisibilityForPokemonNumber:[NSNumber numberWithLong:(indexPath.row + 1)]];
 }
 
--(NSDictionary *)getPokemonFromDictionary
+- (BOOL)getPokemonIsVisible:(NSNumber *)pokemonNumber
+{
+    return [[self.pokemonDictionary objectForKey:[pokemonNumber stringValue]].isPokemonVisible  boolValue];
+}
+
+- (NSDictionary *)getPokemonFromDictionary
 {
     
     NSMutableDictionary *pokeDictionary = [NSMutableDictionary dictionary];

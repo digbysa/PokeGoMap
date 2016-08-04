@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (nonatomic) NSTimer *timer;
+@property (strong, nonatomic) NSMutableArray *displayedPokemon;
 
 @end
 
@@ -28,6 +29,7 @@
     [super viewDidLoad];
     self.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"PokeMap" image:[UIImage imageNamed:@"Image"] selectedImage:[UIImage imageNamed:@"Image"]];
     self.mapView.delegate = self;
+    self.displayedPokemon = [NSMutableArray array];
     [self createLocation];
 }
 
@@ -60,19 +62,65 @@
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     }
 }
+- (void)cleanPokemon
+{
+    
+    for (PokemonBase *pokemon in self.displayedPokemon)
+    {
+        [self.mapView removeAnnotation:pokemon];
+    }
+    
+    self.displayedPokemon = [NSMutableArray array];
+}
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations
 {
+    [self cleanPokemon];
+    
     CLLocationCoordinate2D coord = [locations firstObject].coordinate;
-    [self.mapView setRegion:MKCoordinateRegionMake(coord, MKCoordinateSpanMake(0.025, 0.025)) animated:YES];
     
-    CLLocationCoordinate2D coordBegin = CLLocationCoordinate2DMake(coord.latitude - 1, coord.longitude - 1);
+    static BOOL regionIsSet = false;
+    
+    if (!regionIsSet)
+    {
+        self.mapView.centerCoordinate = coord;
+        [self.mapView setRegion:MKCoordinateRegionMake(coord, MKCoordinateSpanMake(1.0, 1.0)) animated:YES];
+        regionIsSet = true;
+    }
+    
+    /*
+     CLLocationCoordinate2D coordBegin = CLLocationCoordinate2DMake(coord.latitude - 1, coord.longitude - 1);
     CLLocationCoordinate2D coordEnd = CLLocationCoordinate2DMake(coord.latitude + 1, coord.longitude + 1);
+    */
     
-    PokemonBase *pokemon = [[PokemonBase alloc] initWithPokemonName:@"Pyro" ID:@47 andIsVisible:@1];
-    pokemon.coordinate = self.mapView.userLocation.coordinate;
-    [self.mapView addAnnotation:pokemon];
+    for (int i = 0; i < 10; i++)
+    {
+        NSNumber *randPokemon = [[NSNumber alloc]initWithInt:arc4random_uniform(151) + 1];
+        
+        if ([[PokemonHelper sharedObject]getPokemonIsVisible:randPokemon])
+        {
+            NSUInteger randLat = arc4random_uniform(10);
+            CGFloat randDecLat = 1.0/randLat;
+            NSUInteger negativeLat = arc4random_uniform(2);
+            randDecLat = negativeLat ? - randDecLat : randDecLat;
+            
+            NSUInteger randLong = arc4random_uniform(10);
+            CGFloat randDecLong = 1.0/randLong;
+            NSUInteger negativeLong = arc4random_uniform(2);
+            randDecLong = negativeLong ? - randDecLong : randDecLong;
+            
+            CLLocationCoordinate2D pokemonLocation = CLLocationCoordinate2DMake(self.mapView.centerCoordinate.latitude + randDecLat, self.mapView.centerCoordinate.longitude + randDecLong);
+            
+            PokemonBase *pokemon = [[PokemonBase alloc] initWithPokemonName:@"Pyro" ID:randPokemon andIsVisible:@1];
+            pokemon.coordinate = pokemonLocation;
+            [self.mapView addAnnotation:pokemon];
+            __weak PokemonBase *weakPokemon = pokemon;
+            
+            [self.displayedPokemon addObject:weakPokemon];
+        }
+    }
     
+    //self.mapView.userLocation.coordinate;
     
    /* NSString *URLToServer = [NSString stringWithFormat:@"https://skiplagged.com/api/pokemon.php?bounds=%.6f,%.6f,%.6f,%.6f",coordBegin.latitude,coordBegin.longitude,coordEnd.latitude,coordEnd.longitude];
     NSString *URLToServer = @"https://skiplagged.com/api/pokemon.php?bounds=49.281753,-123.126088,49.288247,-123.117912";

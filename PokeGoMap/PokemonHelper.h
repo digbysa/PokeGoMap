@@ -12,4 +12,6 @@
 
 + (instancetype)sharedObject;
 - (void)saveChanges;
+- (BOOL)getPokemonIsVisible:(NSNumber *)pokemonNumber;
+
 @end
