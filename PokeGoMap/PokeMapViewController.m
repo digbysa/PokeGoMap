@@ -88,50 +88,32 @@
         regionIsSet = true;
     }
     
-    /*
-     CLLocationCoordinate2D coordBegin = CLLocationCoordinate2DMake(coord.latitude - 1, coord.longitude - 1);
-    CLLocationCoordinate2D coordEnd = CLLocationCoordinate2DMake(coord.latitude + 1, coord.longitude + 1);
-    */
     
-    for (int i = 0; i < 10; i++)
-    {
-        NSNumber *randPokemon = [[NSNumber alloc]initWithInt:arc4random_uniform(151) + 1];
-        
-        if ([[PokemonHelper sharedObject]getPokemonIsVisible:randPokemon])
-        {
-            NSUInteger randLat = arc4random_uniform(10);
-            CGFloat randDecLat = 1.0/randLat;
-            NSUInteger negativeLat = arc4random_uniform(2);
-            randDecLat = negativeLat ? - randDecLat : randDecLat;
-            
-            NSUInteger randLong = arc4random_uniform(10);
-            CGFloat randDecLong = 1.0/randLong;
-            NSUInteger negativeLong = arc4random_uniform(2);
-            randDecLong = negativeLong ? - randDecLong : randDecLong;
-            
-            CLLocationCoordinate2D pokemonLocation = CLLocationCoordinate2DMake(self.mapView.centerCoordinate.latitude + randDecLat, self.mapView.centerCoordinate.longitude + randDecLong);
-            
-            PokemonBase *pokemon = [[PokemonBase alloc] initWithPokemonName:@"Pyro" ID:randPokemon andIsVisible:@1];
-            pokemon.coordinate = pokemonLocation;
-            [self.mapView addAnnotation:pokemon];
-            __weak PokemonBase *weakPokemon = pokemon;
-            
-            [self.displayedPokemon addObject:weakPokemon];
-        }
-    }
+    CLLocationCoordinate2D coordBegin = CLLocationCoordinate2DMake(self.mapView.centerCoordinate.latitude - 0.5 , self.mapView.centerCoordinate.longitude - 0.5);
+    CLLocationCoordinate2D coordEnd = CLLocationCoordinate2DMake(self.mapView.centerCoordinate.latitude + 0.5, self.mapView.centerCoordinate.longitude + 0.5);
     
-    //self.mapView.userLocation.coordinate;
-    
-   /* NSString *URLToServer = [NSString stringWithFormat:@"https://skiplagged.com/api/pokemon.php?bounds=%.6f,%.6f,%.6f,%.6f",coordBegin.latitude,coordBegin.longitude,coordEnd.latitude,coordEnd.longitude];
-    NSString *URLToServer = @"https://skiplagged.com/api/pokemon.php?bounds=49.281753,-123.126088,49.288247,-123.117912";
+   NSString *URLToServer = [NSString stringWithFormat:@"https://skiplagged.com/api/pokemon.php?bounds=%.6f,%.6f,%.6f,%.6f",coordBegin.latitude,coordBegin.longitude,coordEnd.latitude,coordEnd.longitude];
+    //NSString *URLToServer = @"https://skiplagged.com/api/pokemon.php?bounds=49.281753,-123.126088,49.288247,-123.117912";
     
     NSURL *url = [NSURL URLWithString:URLToServer];
     [[[NSURLSession sharedSession] dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         NSDictionary* json = [NSJSONSerialization JSONObjectWithData:data
                                                              options:kNilOptions
                                                                error:nil];
-        NSLog(@"%@", json);
-    }] resume];*/
+        NSArray *array = json[@"pokemons"];
+        
+        for (NSDictionary *pokemonDictionary in array)
+        {
+            PokemonBase *pokemon = [[PokemonBase alloc] initWithPokemonName:pokemonDictionary[@"pokemon_name"] ID:pokemonDictionary[@"pokemon_id"] andIsVisible:@1];
+            pokemon.expires = pokemonDictionary[@"expires"];
+            pokemon.coordinate = CLLocationCoordinate2DMake([pokemonDictionary[@"latitude"] doubleValue], [pokemonDictionary[@"longitude"] doubleValue]);
+            
+            [self.mapView addAnnotation:pokemon];
+            __weak PokemonBase *weakPokemon = pokemon;
+            
+            [self.displayedPokemon addObject:weakPokemon];        }
+        
+    }] resume];
     
     [self.locationManager stopUpdatingLocation];
 }
