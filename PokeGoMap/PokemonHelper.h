@@ -6,11 +6,10 @@
 //  Copyright © 2016 Digby Andrews. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
-@interface PokemonHelper : NSObject
+@interface PokemonHelper : NSObject <UITableViewDataSource, UITableViewDelegate>
 
 + (instancetype)sharedObject;
-- (void)setIsVisible:(NSNumber *)isVisible forPokemonNumber:(NSNumber *)pokemonNumber;
-
+- (void)saveChanges;
 @end

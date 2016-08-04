@@ -7,8 +7,9 @@
 //
 
 #import "SettingsViewController.h"
+#import "PokemonHelper.h"
 
-@interface SettingsViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface SettingsViewController () 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
@@ -18,43 +19,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
+    self.tableView.delegate = [PokemonHelper sharedObject];
+    self.tableView.dataSource = [PokemonHelper sharedObject];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return 1;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PokemonCell"];
-    
-    if (!cell)
-    {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"PokemonCell"];
-    }
-    
-    UIImageView *imageView = [cell.contentView viewWithTag:1];
-    UILabel *labelView = [cell.contentView viewWithTag:2];
-    UISwitch *switchView = [cell.contentView viewWithTag:3];
-    
-    imageView.image = [UIImage imageNamed:@"16"];
-    labelView.text = [NSString stringWithFormat:@"#16 - Pidgey"];
-    [switchView addTarget:self action:@selector(switchChanged:) forControlEvents:UIControlEventValueChanged];
-    
-    return cell;
-}
-
-- (void) switchChanged:(UISwitch *) sender
-{
-    
 }
 
 @end

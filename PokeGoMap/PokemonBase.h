@@ -7,12 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <MapKit/MapKit.h>
 
-@interface PokemonBase : NSObject <NSCoding>
+@interface PokemonBase : NSObject <NSCoding, MKAnnotation>
 
 @property (nonatomic, readonly) NSNumber *pokemonID;
 @property (nonatomic, readonly) NSString *pokemonName;
-@property (nonatomic, readonly) NSNumber *isPokemonVisible;
+@property (nonatomic) NSNumber *isPokemonVisible;
+@property (nonatomic) CLLocationCoordinate2D coordinate;
+@property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy) NSString *subtitle;
 
 - (instancetype)initWithPokemonName:(NSString *)name ID:(NSNumber *)ID andIsVisible:(NSNumber *)isVisible;
 

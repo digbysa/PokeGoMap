@@ -37,7 +37,7 @@
         
         if (!_pokemonDictionary)
         {
-            _pokemonDictionary = [self getPokemonFromJSON];
+            _pokemonDictionary = [self getPokemonFromDictionary];
         }
     }
     
@@ -46,16 +46,61 @@
 
 - (NSString *) path
 {
-    NSArray *dir = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, NO);
+    NSArray *dir = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     return [[dir firstObject] stringByAppendingPathComponent:@"pokemon.txt"];
 }
 
-- (void)setIsVisible:(NSNumber *)isVisible forPokemonNumber:(NSNumber *)pokemonNumber
+- (void)switchVisibilityForPokemonNumber:(NSNumber *)pokemonNumber
 {
-    
+    PokemonBase *pokemon = [self.pokemonDictionary objectForKey:[NSString stringWithFormat:@"%@",pokemonNumber]];
+    BOOL isVisible = [pokemon.isPokemonVisible boolValue];
+    pokemon.isPokemonVisible = [NSNumber numberWithBool:!isVisible];
 }
 
--(NSDictionary *)getPokemonFromJSON
+- (void)saveChanges
+{
+    [NSKeyedArchiver archiveRootObject:self.pokemonDictionary toFile:[self path]];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.pokemonDictionary.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PokemonCell"];
+    
+    if (!cell)
+    {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"PokemonCell"];
+    }
+    
+    UIImageView *imageView = [cell.contentView viewWithTag:1];
+    UILabel *labelView = [cell.contentView viewWithTag:2];
+    UISwitch *switchView = [cell.contentView viewWithTag:3];
+    
+    NSString *key = [NSString stringWithFormat:@"%ld",(indexPath.row + 1)];
+    PokemonBase *pokemon = [self.pokemonDictionary objectForKey:key];
+    
+    imageView.image = [UIImage imageNamed:key];
+    labelView.text = [NSString stringWithFormat:@"#%@ - %@",key,pokemon.pokemonName];
+    
+    [switchView addTarget:self action:@selector(switchChanged:) forControlEvents:UIControlEventValueChanged];
+    [switchView setOn:[pokemon.isPokemonVisible boolValue]];
+    
+    return cell;
+}
+
+- (void) switchChanged:(UISwitch *) sender
+{
+    UITableView *tableView = (UITableView *) sender.superview.superview.superview.superview;
+    UITableViewCell *cell = (UITableViewCell *) sender.superview.superview;
+    NSIndexPath *indexPath = [tableView indexPathForCell:cell];
+    [self switchVisibilityForPokemonNumber:[NSNumber numberWithLong:(indexPath.row + 1)]];
+}
+
+-(NSDictionary *)getPokemonFromDictionary
 {
     
     NSMutableDictionary *pokeDictionary = [NSMutableDictionary dictionary];
@@ -211,17 +256,6 @@
     [pokeDictionary setObject:[[PokemonBase alloc] initWithPokemonName:@"Dragonite" ID:[NSNumber numberWithInt:149] andIsVisible:[NSNumber numberWithBool:YES]] forKey:@"149"];
     [pokeDictionary setObject:[[PokemonBase alloc] initWithPokemonName:@"Mewtwo" ID:[NSNumber numberWithInt:150] andIsVisible:[NSNumber numberWithBool:YES]] forKey:@"150"];
     [pokeDictionary setObject:[[PokemonBase alloc] initWithPokemonName:@"Mew" ID:[NSNumber numberWithInt:151] andIsVisible:[NSNumber numberWithBool:YES]] forKey:@"151"];
-    
-    [json enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop)
-    {
-        NSString *mykey = [NSString stringWithString:key];
-        NSString *name = [NSString stringWithString:obj[@"name"]];
-        
-        PokemonBase *pokemon = [[PokemonBase alloc] initWithPokemonName:name ID:[NSNumber numberWithInt:[mykey intValue]] andIsVisible:[NSNumber numberWithBool:YES]];
-        
-        
-        [pokeDictionary setObject:pokemon forKey:mykey];
-    }];
     
     return pokeDictionary;
 }

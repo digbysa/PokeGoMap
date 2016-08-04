@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		80056CD91D5263B300F529F5 /* PokemonAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 80056CD81D5263B300F529F5 /* PokemonAnnotationView.m */; };
 		800914971D512C2F00BC26FE /* PokemonHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 800914961D512C2F00BC26FE /* PokemonHelper.m */; };
 		80B660881D4930FF00B9D100 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B660871D4930FF00B9D100 /* main.m */; };
 		80B6608B1D4930FF00B9D100 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B6608A1D4930FF00B9D100 /* AppDelegate.m */; };
@@ -20,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		80056CD71D5263B300F529F5 /* PokemonAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PokemonAnnotationView.h; sourceTree = "<group>"; };
+		80056CD81D5263B300F529F5 /* PokemonAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PokemonAnnotationView.m; sourceTree = "<group>"; };
 		800914951D512C2F00BC26FE /* PokemonHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PokemonHelper.h; sourceTree = "<group>"; };
 		800914961D512C2F00BC26FE /* PokemonHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PokemonHelper.m; sourceTree = "<group>"; };
 		80B660831D4930FF00B9D100 /* PokeGoMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeGoMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,6 +89,8 @@
 				80D77AEF1D4BCCC00063B189 /* PokemonBase.m */,
 				800914951D512C2F00BC26FE /* PokemonHelper.h */,
 				800914961D512C2F00BC26FE /* PokemonHelper.m */,
+				80056CD71D5263B300F529F5 /* PokemonAnnotationView.h */,
+				80056CD81D5263B300F529F5 /* PokemonAnnotationView.m */,
 			);
 			path = PokeGoMap;
 			sourceTree = "<group>";
@@ -174,6 +179,7 @@
 				80B6608B1D4930FF00B9D100 /* AppDelegate.m in Sources */,
 				80B660881D4930FF00B9D100 /* main.m in Sources */,
 				80D77AED1D4BB9950063B189 /* SettingsViewController.m in Sources */,
+				80056CD91D5263B300F529F5 /* PokemonAnnotationView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
