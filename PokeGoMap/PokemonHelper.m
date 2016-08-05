@@ -11,6 +11,7 @@
 
 @interface PokemonHelper ()
 @property (nonatomic) NSDictionary<NSString*, PokemonBase *> *pokemonDictionary;
+@property (nonatomic) NSArray *keys;
 
 @end
 
@@ -57,6 +58,12 @@
     pokemon.isPokemonVisible = [NSNumber numberWithBool:!isVisible];
 }
 
+- (void)switchVisibilityTo:(BOOL)visibility ForPokemonNumber:(NSNumber *)pokemonNumber
+{
+    PokemonBase *pokemon = [self.pokemonDictionary objectForKey:[NSString stringWithFormat:@"%@",pokemonNumber]];
+    pokemon.isPokemonVisible = [NSNumber numberWithBool:visibility];
+}
+
 - (void)saveChanges
 {
     [NSKeyedArchiver archiveRootObject:self.pokemonDictionary toFile:[self path]];
@@ -80,11 +87,18 @@
     UILabel *labelView = [cell.contentView viewWithTag:2];
     UISwitch *switchView = [cell.contentView viewWithTag:3];
     
-    NSString *key = [NSString stringWithFormat:@"%ld",(indexPath.row + 1)];
-    PokemonBase *pokemon = [self.pokemonDictionary objectForKey:key];
+    PokemonBase *pokemon;
+    if (!self.keys)
+    {
+        pokemon = [self.pokemonDictionary objectForKey:[NSString stringWithFormat:@"%ld",(indexPath.row + 1)]];
+    }
+    else
+    {
+        pokemon = [self.pokemonDictionary objectForKey:self.keys[indexPath.row]];
+    }
     
-    imageView.image = [UIImage imageNamed:key];
-    labelView.text = [NSString stringWithFormat:@"#%@ - %@",key,pokemon.pokemonName];
+    imageView.image = [UIImage imageNamed:[pokemon.pokemonID stringValue]];
+    labelView.text = [NSString stringWithFormat:@"#%@ - %@",pokemon.pokemonID,pokemon.pokemonName];
     
     [switchView addTarget:self action:@selector(switchChanged:) forControlEvents:UIControlEventValueChanged];
     [switchView setOn:[pokemon.isPokemonVisible boolValue]];
@@ -103,6 +117,30 @@
 - (BOOL)getPokemonIsVisible:(NSNumber *)pokemonNumber
 {
     return [[self.pokemonDictionary objectForKey:[pokemonNumber stringValue]].isPokemonVisible  boolValue];
+}
+
+- (void)setSortMode:(PokemonSortMode)mode forTableView:(UITableView *)tableView
+{
+    switch (mode)
+    {
+        case PSM_ALPHA:
+            
+            self.keys = [self.pokemonDictionary keysSortedByValueUsingComparator:^NSComparisonResult(PokemonBase *obj1, PokemonBase *obj2) {
+                return [obj1.pokemonName compare:obj2.pokemonName];
+            }];
+            break;
+            
+        default:
+            self.keys = [self.pokemonDictionary keysSortedByValueUsingComparator:^NSComparisonResult(PokemonBase *obj1, PokemonBase *obj2) {
+                if ([obj1.pokemonID intValue] > [obj2.pokemonID intValue])
+                    return NSOrderedDescending;
+                else
+                    return NSOrderedAscending;
+            }];
+            break;
+    }
+    
+    [tableView reloadData];
 }
 
 - (NSDictionary *)getPokemonFromDictionary

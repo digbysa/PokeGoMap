@@ -97,7 +97,6 @@
         regionIsSet = true;
     }
     
-    
     CLLocationCoordinate2D coordBegin = CLLocationCoordinate2DMake(self.mapView.centerCoordinate.latitude - 0.025 , self.mapView.centerCoordinate.longitude - 0.025);
     CLLocationCoordinate2D coordEnd = CLLocationCoordinate2DMake(self.mapView.centerCoordinate.latitude + 0.025, self.mapView.centerCoordinate.longitude + 0.025);
     
