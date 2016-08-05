@@ -73,6 +73,15 @@
     self.displayedPokemon = [NSMutableArray array];
 }
 
+- (int)getTimeToLive:(int)expiresIn
+{
+    NSTimeInterval currentTimeInSeconds = [[NSDate date] timeIntervalSince1970];
+    int currentDateInSeconds = (int)currentTimeInSeconds;
+    int expiresInSeconds = expiresIn;
+    int timeDiffInSeconds = expiresInSeconds - currentDateInSeconds;
+    return timeDiffInSeconds;
+}
+
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations
 {
     [self cleanPokemon];
@@ -112,6 +121,11 @@
             PokemonBase *pokemon = [[PokemonBase alloc] initWithPokemonName:pokemonDictionary[@"pokemon_name"] ID:pokemonDictionary[@"pokemon_id"] andIsVisible:@1];
             pokemon.expires = pokemonDictionary[@"expires"];
             pokemon.coordinate = CLLocationCoordinate2DMake([pokemonDictionary[@"latitude"] doubleValue], [pokemonDictionary[@"longitude"] doubleValue]);
+            pokemon.title = pokemonDictionary[@"pokemon_name"];
+            
+            NSString *pokemonTTLString = [NSString stringWithFormat:@"Disappears in %d seconds",
+                                          [self getTimeToLive:[pokemonDictionary[@"expires"]intValue]]];
+            pokemon.subtitle = pokemonTTLString;
             
             [self.mapView addAnnotation:pokemon];
             __weak PokemonBase *weakPokemon = pokemon;
